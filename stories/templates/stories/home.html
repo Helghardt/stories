@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Reader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div id="app" class="min-h-screen">
+        <!-- Navigation Bar -->
+        <nav class="bg-indigo-600 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-white text-xl font-bold">Story Reader</h1>
+                    </div>
+                    <div>
+                        <button id="loginButton" class="text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-200">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Story List View -->
+            <div id="storyListView" class="space-y-6">
+                <div id="storiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Stories will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Story Reading View -->
+            <div id="storyReadingView" class="flex flex-col lg:flex-row gap-8 hidden">
+                <!-- Chapter Navigation Sidebar -->
+                <div class="lg:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div id="chapterNav" class="flex flex-col gap-2">
+                            <!-- Chapters will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Reading Area -->
+                <div class="lg:w-1/2 space-y-6">
+                    <div class="flex items-center gap-4">
+                        <h2 id="storyTitle" class="text-2xl font-bold text-gray-900"></h2>
+                    </div>
+
+                    <!-- Paragraphs -->
+                    <div id="paragraphsContainer" class="space-y-6">
+                        <!-- Paragraphs will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="lg:w-1/4 space-y-6">
+                    <!-- Hidden element for chapter tracking -->
+                    <p id="currentChapterDisplay" class="hidden"></p>
+
+                    <!-- NFT Ownership -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Your NFTs</h3>
+                        <div id="nftContainer">
+                            <p class="text-gray-600">You don't own any NFTs for this story yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Templates -->
+    <template id="storyCardTemplate">
+        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2"></h3>
+                <p class="text-gray-600 mb-4"></p>
+                <button class="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 
+                             transition-colors duration-200">
+                    Read Story
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <template id="paragraphTemplate">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="paragraph-content"></div>
+        </div>
+    </template>
+
+    <div id="loginModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
+            <h2 class="text-2xl font-bold mb-4 text-gray-900">Login</h2>
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           required
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm 
+                                  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+                                  focus:border-indigo-500 sm:text-sm"
+                           placeholder="Enter your email">
+                </div>
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button type="button" 
+                            id="cancelLogin" 
+                            class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white 
+                                   hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                                   focus:ring-indigo-500 sm:text-sm">
+                        Cancel
+                    </button>
+                    <button type="submit" 
+                            class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 
+                                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 
+                                   sm:text-sm">
+                        Continue
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/story-reader.js"></script>
+    <script src="/static/js/login.js"></script>
+</body>
+</html>

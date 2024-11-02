@@ -1,0 +1,22 @@
+[
+    {
+        "model": "stories.story",
+        "pk": 1,
+        "fields": {
+            "title": "The Blockchain Chronicles",
+            "description": "A tale of decentralization and digital revolution",
+            "created_at": "2024-03-20T10:00:00Z",
+            "author": 1
+        }
+    },
+    {
+        "model": "stories.story",
+        "pk": 2,
+        "fields": {
+            "title": "Web3 Adventures",
+            "description": "Journey through the future of the internet",
+            "created_at": "2024-03-20T11:00:00Z",
+            "author": 2
+        }
+    }
+]

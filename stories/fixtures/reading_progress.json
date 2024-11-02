@@ -1,0 +1,32 @@
+[
+    {
+        "model": "stories.readingprogress",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "story": 1,
+            "viewed_paragraphs": [1, 2],
+            "last_accessed": "2024-03-20T12:00:00Z"
+        }
+    },
+    {
+        "model": "stories.readingprogress",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "story": 1,
+            "viewed_paragraphs": [1],
+            "last_accessed": "2024-03-20T12:30:00Z"
+        }
+    },
+    {
+        "model": "stories.readingprogress",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "story": 2,
+            "viewed_paragraphs": [4],
+            "last_accessed": "2024-03-20T13:00:00Z"
+        }
+    }
+]
